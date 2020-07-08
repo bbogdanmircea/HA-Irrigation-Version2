@@ -33,7 +33,7 @@ sudo cp -r package /usr/share/hassio/homeassistant/packages/
     - 'time'
     - 'date'
     
-7. Create a file chiamato irrigation.yaml e copiamoci dentro:
+7. Create a file irrigation.yaml :
 
 title: Irrigation
 views:
@@ -84,7 +84,7 @@ lovelace:
     - url: https://fonts.googleapis.com/css?family=Dosis
       type: css
   
-  b.If the main dashboard is storage, then you need to add them in
+  b.If the main dashboard is storage, then you need to add them in Configuration/Dashboard/Resources, add the urls of the 2 fonts as Stylesheets
   
 10. If you installed the dark theme, then you need to edit configuration.yaml
 
