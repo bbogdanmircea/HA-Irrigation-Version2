@@ -91,7 +91,8 @@ lovelace:
 frontend:
   themes: !include_dir_merge_named themes
   
-11. Restart HA and check the Irrigation dashboard
+11. Restart HA and check the Irrigation dashboard, I noticed in Win10/Firefox that the browser_mod components don't work, but in Win7 or my phone they work ok,
+so this seems to be some browser related problems.
       
 
 
