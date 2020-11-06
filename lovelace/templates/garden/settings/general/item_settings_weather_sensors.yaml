@@ -1,3 +1,4 @@
+# lovelace_gen
 
 #=============================
 #=== SETTINGS WEATHER SENSORS
@@ -26,30 +27,27 @@ tap_action:
   service: browser_mod.popup
   service_data:
     title: Weather Sensors
+    hide_header: true
     card:
       type: vertical-stack
       cards:
         - type: markdown
           content: >
-            For the Weather Outlook you need to create the following sensor:
+            For the 'Weather Outlook' you need to create the following sensor:
           style: >
             ha-card {
-              box-shadow: none;
-              padding: 0em 0em 0em 1em;
-              background: var(--paper-dialog-background-color);
+              font-family: {% raw %}{{ states('input_text.irrigation_ui_font_family') }}{% endraw %};
               font-size: 16px;
-            }
+              }
         - type: markdown
           content: >
             sensor.irrigation_weather_outlook
           style: >
-            ha-card {
-              box-shadow: none;
-              background: var(--paper-dialog-background-color);
-              text-align: center;
-              font-family: Roboto;
-              font-size: 16px;
-            }
+              ha-card {
+                font-family: Monospace; 
+                font-size: 14px;
+                text-align: center;
+              }
         - type: entities
           entities:
             - type: section
@@ -68,22 +66,19 @@ tap_action:
               name: Forecast High Temperature
             - entity: input_text.irrigation_external_sensor_current_temp
               name: Current Temperature
-            # - type: section
           style: >
             ha-card {
-              box-shadow: none;
-              border-radius: 0em 0em 1em 1em;
-              background: var(--paper-dialog-background-color);
-            }
+              font-family: {% raw %}{{ states('input_text.irrigation_ui_font_family') }}{% endraw %};
+              }
     deviceID:
       - this
     style:
-      font-family: >
-        [[[
-          return states['input_text.irrigation_ui_font_family'].state
-        ]]]
-      box-shadow: 0em 0em 0.5em
-      border-radius: 1em
-      overflow: hidden
-      opacity: 0.9
+      $: |
+        .mdc-dialog {
+            backdrop-filter: blur(5px);
+          }
+        .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+            border-radius: 1em;
+            box-shadow: 0em 0em 0.5em;
+          }
 

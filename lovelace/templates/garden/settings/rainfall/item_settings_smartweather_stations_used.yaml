@@ -31,6 +31,7 @@ card:
         service: browser_mod.popup
         service_data:
           title: Smartweather Rainfall
+          hide_header: true
           card:
             type: markdown
             content: >
@@ -71,17 +72,20 @@ card:
               {{ id5 }}: {{ name5 }} | {{ today5 | round(1) }} | {{ yesterday5 | round(1) }}
             style: >
               ha-card {
-                border-radius: 0em 0em 1em 1em
+                font-family: {% raw %}{{ states('input_text.irrigation_ui_font_family') }}{% endraw %};
               }
           deviceID:
             - this
           style:
-            font-family: "[[[ return states['input_text.irrigation_ui_font_family'].state ]]]"
-            box-shadow: 0em 0em 0.5em
-            border-radius: 1em
-            overflow: hidden
-            opacity: 0.9
-
+            $: |
+              .mdc-dialog {
+                  backdrop-filter: blur(5px);
+                }
+              .mdc-dialog .mdc-dialog__container .mdc-dialog__surface {
+                  border-radius: 1em;
+                  box-shadow: 0em 0em 0.5em;
+                }
+          
     #========================
     #=== STATIONS TO INCLUDE
     #========================
